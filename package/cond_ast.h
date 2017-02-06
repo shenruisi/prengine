@@ -9,10 +9,11 @@
 #ifndef cond_ast_hpp
 #define cond_ast_hpp
 
-#include <stdio.h>
-#include <queue>
+
 #include "prengine_val.h"
 
+#include <stdio.h>
+#include <queue>
 using namespace std;
 
 #define PRIORITY_UNKNOW (20)
@@ -23,7 +24,7 @@ struct cond_node{
     cond_node *parent;
     pr_id *val;
     bool isbracketoprator;
-    
+
     cond_node(){
         isbracketoprator = false;
         left = NULL;

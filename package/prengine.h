@@ -14,8 +14,8 @@
 typedef struct pr_file_t PRFILE;
 typedef struct pr_rewrite_t PRREWRITE;
 
-PRFILE* pr_creat(const char *path);
-PRREWRITE* pr_rewrite_matched_creat(PRFILE *f,const char *scheme,const char *host,const char *path);
+PRFILE* pr_creat(char *cnt);
+PRREWRITE* pr_rewrite_matched_creat(PRFILE *f,const char *uri);
 const char *pr_getserver(PRREWRITE *);
 const char *pr_getscheme(PRREWRITE *);
 const char *pr_geturl(PRREWRITE *);

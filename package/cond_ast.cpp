@@ -28,7 +28,7 @@ int get_operator_priority(string s){
         return 12;
     else if (s == "=")
         return 14;
-    
+
     return PRIORITY_UNKNOW;
 }
 
@@ -72,7 +72,7 @@ static inline cond_node* _get_top_root(cond_node *curroot){
     while(toproot->parent){
         toproot = toproot->parent;
     }
-    
+
     return toproot;
 }
 
@@ -85,11 +85,11 @@ cond_node* _inner_cond_ast_creat(string exp,int *index){
     double numcaper = __DBL_MAX__;
     for (int i = *index; i < exp.size(); i++){
         char c = exp[i];
-        
+
         switch (stat) {
             case EXP_STAT_SCAN:{
                 if (c == ' ') continue;
-                
+
                 if (c >= '0' && c <= '9'){
                     EXP_MOVE_STAT(EXP_STAT_CLT_NUMBER);
                     EXP_RESCAN_C();
@@ -140,7 +140,7 @@ cond_node* _inner_cond_ast_creat(string exp,int *index){
                     else {
                         id = new pr_id(numcaper);
                     }
-                    
+
                     cond_node *node = new cond_node();
                     node->val = id;
                     EXP_APPEND_NODE(node);
@@ -161,7 +161,7 @@ cond_node* _inner_cond_ast_creat(string exp,int *index){
                 break;
             case EXP_STAT_CLT_OPERATOR:{
                 if (c == ' ') continue;
-                
+
                 if (PRIORITY_UNKNOW == get_operator_priority(string(1,c))){
                     pr_id *id = new pr_id(opcaper);
                     if(NULL == curroot->val){
@@ -192,7 +192,7 @@ cond_node* _inner_cond_ast_creat(string exp,int *index){
                             }
                         }
                         curroot = newroot;
-                        
+
                     }
                     EXP_MOVE_STAT(EXP_STAT_SCAN);
                     EXP_RESCAN_C();
@@ -204,7 +204,7 @@ cond_node* _inner_cond_ast_creat(string exp,int *index){
                 break;
         }
     }
-    
+
     if (numcaper != __DBL_MAX__){
         pr_id *id;
         if (integerbit == 1){
@@ -217,7 +217,7 @@ cond_node* _inner_cond_ast_creat(string exp,int *index){
         node->val = id;
         EXP_APPEND_NODE(node);
     }
-    
+
     return _get_top_root(curroot);
 }
 
@@ -303,7 +303,7 @@ pr_id _post_order_traverse(cond_node *op){
             }
         }
     }
-    
+
     return pr_undefined();
 }
 

@@ -11,9 +11,9 @@
 #include <string>
 #include <regex.h>
 
-using namespace std;
 #include "prengine_val.h"
 #include "cond_ast.h"
+using namespace std;
 
 typedef enum{
     PR_ENTITY_SCHEME,
@@ -46,7 +46,7 @@ struct pr_rewrite_t : pr_entity_t{
         type = PR_ENTITY_REWRITE;
         incap = false;
     }
-    
+
     ~pr_rewrite_t(){
         pr_safe_delete(regex);
         pr_safe_delete(replacement);
@@ -143,7 +143,7 @@ typedef enum{
 void _pr_print_entityq(deque<pr_entity_t*> *entityq,int deep){
     string t = string();
     for(int j = 0; j < deep; j++) t+="\t";
-    
+
     for (int i = 0; i < entityq->size(); i++){
         pr_entity_t* e = entityq->at(i);
         if (e->type == PR_ENTITY_REWRITE){
@@ -189,7 +189,7 @@ void _pr_printfile(pr_file_t *f){
         printf("%s{\n",scheme->schemen.c_str());
         _pr_print_entityq(scheme->entityq,1);
         printf("}\n");
-        
+
     }
 }
 
@@ -241,7 +241,7 @@ pr_entity_t* _pr_occur_if_block(pr_entity_t *curentity,PR_IF_TYPE iftype){
         server->entityq->push_back(new pr_if_block_t(iftype));
         return server->entityq->back();
     }
-    
+
     return NULL;
 }
 
@@ -294,7 +294,7 @@ string _reflect_val(string exp){
     string ret = string();
     EXP_REFLECT_STAT stat;
     PR_MOVE_STAT(EXP_REFLECT_SCAN);
-    
+
     for (int i = 0; i < exp.size(); i++){
         char c = exp[i];
         switch (stat) {
@@ -346,7 +346,7 @@ string _reflect_val(string exp){
                 break;
         }
     }
-    
+
     return ret;
 }
 
@@ -355,7 +355,7 @@ void pr_parse(struct pr_file_t *f,const char *cnt){
     string cap = string();
     PR_STAT stat;
     PR_MOVE_STAT(PR_STAT_START);
-    
+
     stack<pr_entity_t *>ebt = stack<pr_entity_t *>();
     pr_entity_t *poped = NULL;
     stack<PR_STAT>sbt = stack<PR_STAT>();
@@ -568,14 +568,12 @@ void pr_parse(struct pr_file_t *f,const char *cnt){
     }
 }
 
-struct pr_file_t* pr_creat(const char *cnt){
+struct pr_file_t* pr_creat(char *cnt){
     pr_file_t *prf = new pr_file_t();
-//    FILE *fp = fopen("/Users/ris/Desktop/PoolRouter/PoolRouter/pr.txt","r");
-//    int err = ferror(fp);
-//    int size = fseek(fp, 0, SEEK_END);
+
     pr_parse(prf,cnt);
-    
-    _pr_printfile(prf);
+
+    // _pr_printfile(prf);
     return prf;
 }
 
@@ -600,12 +598,12 @@ bool _pr_parse_targeturi(pr_rewrite_t*rw,string uri){
                         }
                     }
                     else{
-                        
+
                         regmatch_t mach = groups[icap];
                         *rw->outval += uri.substr(mach.rm_so,mach.rm_eo-mach.rm_so);
                         rw->outval->push_back(c);
                         isdollarval = false,icap = 0;
-                        
+
                     }
                 }
                 else{
@@ -669,7 +667,7 @@ struct pr_rewrite_t* _pr_search_entityq(deque<pr_entity_t*> *entityq,pr_uri_t ur
                         ret = tmp;
                         if (ret->labeled && *ret->labeled == "break") return ret;
                     }
-                    
+
                 }
                 else ignoreifb = false;
             }
@@ -686,15 +684,13 @@ struct pr_rewrite_t* _pr_search_entityq(deque<pr_entity_t*> *entityq,pr_uri_t ur
         else if (e->type == PR_ENTITY_SERVER){
             pr_server_t *s = (pr_server_t *)e;
             if (s->servern == uri.host){
-                
-                pr_rewrite_t* tmp = _pr_search_entityq(s->entityq,
-                                                       pr_uri_t{
-                                                           .scheme = uri.scheme,
-                                                           .host = uri.host,
-                                                           .path = uri.path,
-                                                           .muri = uri.path
-                                                       });
-                
+                pr_uri_t turi;
+                turi.scheme = uri.scheme;
+                turi.host = uri.host;
+                turi.path = uri.path;
+                turi.muri = uri.path;
+                pr_rewrite_t* tmp = _pr_search_entityq(s->entityq, turi);
+
                 if (tmp){
                     if (ret) pr_safe_delete(ret);
                     ret = tmp;
@@ -703,27 +699,72 @@ struct pr_rewrite_t* _pr_search_entityq(deque<pr_entity_t*> *entityq,pr_uri_t ur
             }
         }
     }
-    
+
     return ret;
 }
 
-struct pr_rewrite_t* pr_rewrite_matched_creat(struct pr_file_t*f,const char *scheme,const char *host,const char *path){
-    pr_uri_t uri = pr_uri_t{
-        .scheme = string(scheme),
-        .host = string(host),
-        .path = string(path),
-        .muri = string(host) + string (path)
-    };
-    
+typedef enum{
+  PR_URI_SCHEME,
+  PR_URI_HOST_OPT1,
+  PR_URI_HOST_OPT2,
+  PR_URI_HOST,
+  PR_URI_PATH
+}PR_URI_STAT;
+
+pr_uri_t to_pr_uri(const char *uri){
+    PR_URI_STAT stat = PR_URI_SCHEME;
+    string cap = string();
+    pr_uri_t pruri;
+    for(int i = 0; i < strlen(uri); i++){
+        char c = uri[i];
+        switch (stat) {
+          case PR_URI_SCHEME:{
+              if (c == ':'){
+                  pruri.scheme = cap;
+                  PR_MOVE_STAT(PR_URI_HOST_OPT1);
+              }
+              else PR_CAP();
+          }break;
+          case PR_URI_HOST_OPT1:{
+              if (c == '/'){
+                  PR_MOVE_STAT(PR_URI_HOST_OPT2);
+              }
+          }
+          case PR_URI_HOST_OPT2:{
+              if (c == '/'){
+                  PR_MOVE_STAT(PR_URI_HOST);
+              }
+          }
+          case PR_URI_HOST:{
+              if (c == '/'){
+                pruri.host = cap;
+                PR_MOVE_STAT(PR_URI_PATH);
+                cap += "/";
+              }
+              else PR_CAP();
+          }
+          case PR_URI_PATH:{
+              PR_CAP();
+          }
+        }
+    }
+    pruri.path = cap;
+    return pruri;
+}
+
+struct pr_rewrite_t* pr_rewrite_matched_creat(struct pr_file_t*f,const char *uri){
+    pr_uri_t pruri  = to_pr_uri(uri);
+    pruri.muri = pruri.host + pruri.path;
+
     struct pr_rewrite_t* ret = NULL;
     for(int i = 0; i < f->schemeq->size(); i++){
         pr_scheme_t *scheme = f->schemeq->at(i);
-        if (scheme->schemen == uri.scheme){
-            ret = _pr_search_entityq(scheme->entityq, uri);
+        if (scheme->schemen == pruri.scheme){
+            ret = _pr_search_entityq(scheme->entityq, pruri);
             break;
         }
     }
-    
+
     return ret;
 }
 
@@ -746,6 +787,3 @@ const char *pr_getrule(struct pr_rewrite_t *rw){
 void pr_rewritefree(struct pr_rewrite_t *rw){
     pr_safe_delete(rw);
 }
-
-
-
