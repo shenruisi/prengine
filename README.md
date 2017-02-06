@@ -24,9 +24,8 @@ g++ ../package/prengine_val.cpp ../package/cond_ast.cpp ../package/prengine.cpp 
 
 3.调用`PRREWRITE* pr_rewrite_matched_creat(PRFILE *f,const char *uri)` 传入`PRFILE`句柄和需要转化的`URI`,得到相应的`PRREWRITE`对象。
 
-4.通过`const char *pr_getserver(PRREWRITE *)`,`const char *pr_getscheme(PRREWRITE *)`
-`const char *pr_getoutval(PRREWRITE *)`,`const char *pr_getrule(PRREWRITE *)`来
-获取`PRREWRITE`对象的不同属性。
+4.通过`const char *pr_getserver(PRREWRITE *)`,`const char *pr_getscheme(PRREWRITE *)`,`const char *pr_getoutval(PRREWRITE *)`,`const char *pr_getrule(PRREWRITE *)`
+来获取`PRREWRITE`对象的不同属性。
 
 5.调用`void pr_rewritefree(PRREWRITE *)`释放`PRREWRITE`对象。
 
