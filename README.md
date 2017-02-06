@@ -6,6 +6,9 @@
 或是Java将`prengine`在iOS或是Android平台进行封装。
 
 ## 示例
+
+[示例代码](https://github.com/shenruisi/prengine/blob/master/sample/main.cpp)  [示例配置文件](https://github.com/shenruisi/prengine/blob/master/sample/sample.conf)
+
 可以进入`sample/`目录 运行
 
 g++ ../package/prengine_val.cpp ../package/cond_ast.cpp ../package/prengine.cpp  main.cpp
