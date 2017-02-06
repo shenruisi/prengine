@@ -129,7 +129,8 @@ typedef enum{
     PR_STAT_IF_OPT,
     PR_STAT_IF,
     PR_STAT_IF_COND,
-    PR_STAT_IF_BLOCK
+    PR_STAT_IF_BLOCK,
+    PR_STAT_COMMENT,
 }PR_STAT;
 
 typedef enum{
@@ -251,8 +252,6 @@ pr_entity_t* _pr_occur_if_block(pr_entity_t *curentity,PR_IF_TYPE iftype){
 if (c == ' ' || c == '\r' || c == '\n') nothing;\
 else cap.push_back(c);
 #define PR_MOVE_STAT(__new_stat__) do{stat = __new_stat__; PR_CLEAN_CAP();}while(0)
-#define PR_ESCAPE_WHITESPACE() if (c == ' ') continue;
-#define PR_ESCAPE_NEWLINE() if (c == '\r' || c == '\n') continue;
 #define PR_ENTITY_PUSH(__entity__)\
 do{\
 if (__entity__ && ( ebt.empty() || __entity__ != ebt.top()))\
@@ -270,7 +269,7 @@ do{\
         ebt.pop();\
     }\
 }while(0)
-#define PR_STAT_POP()\
+#define PR_STAT_ENTITY_POP()\
 do{\
     PR_CLEAN_CAP();\
     if (!sbt.empty()){\
@@ -280,8 +279,24 @@ do{\
     }\
     else stat = PR_STAT_START;\
 }while(0)
-
+#define PR_STAT_POP()\
+do{\
+    PR_CLEAN_CAP();\
+    if (!sbt.empty()){\
+        stat = sbt.top();\
+        sbt.pop();\
+    }\
+    else stat = PR_STAT_START;\
+}while(0)
 #define PR_RESCAN_C() i--;
+#define PR_ESCAPE_WHITESPACE() if (c == ' ') continue;
+#define PR_ESCAPE_NEWLINE() if (c == '\r' || c == '\n') continue;
+#define PR_ESCAPE_COMMENT() \
+if (c == '#'){\
+  PR_STAT_PUSH();\
+  PR_MOVE_STAT(PR_STAT_COMMENT);\
+  continue;\
+}
 
 typedef enum {
     EXP_REFLECT_SCAN,
@@ -363,6 +378,7 @@ void pr_parse(struct pr_file_t *f,const char *cnt){
         char c = cnt[i];
         switch (stat) {
             case PR_STAT_START:{
+                PR_ESCAPE_COMMENT();
                 PR_STAT_PUSH();
                 PR_MOVE_STAT(PR_STAT_SCHEME_OPT);
                 PR_CAP();
@@ -375,6 +391,7 @@ void pr_parse(struct pr_file_t *f,const char *cnt){
                 }else PR_CAP();
             }break;
             case PR_STAT_SCHEME:{
+                PR_ESCAPE_COMMENT();
                 PR_CAP();
                 if (cap == "rewrite") {
                     pr_entity_t *e = _pr_occur_rewrite(PR_CURENTITY);
@@ -405,7 +422,7 @@ void pr_parse(struct pr_file_t *f,const char *cnt){
                     PR_MOVE_STAT(PR_STAT_IF);
                 }
                 else if (c == '}') {
-                    PR_STAT_POP();
+                    PR_STAT_ENTITY_POP();
                 }
             }break;
             case PR_STAT_SERVER_OPT:{
@@ -418,6 +435,7 @@ void pr_parse(struct pr_file_t *f,const char *cnt){
                 }
             }break;
             case PR_STAT_SERVER:{
+                PR_ESCAPE_COMMENT();
                 PR_CAP();
                 if (cap == "rewrite"){
                     pr_entity_t *e = _pr_occur_rewrite(PR_CURENTITY);
@@ -428,7 +446,7 @@ void pr_parse(struct pr_file_t *f,const char *cnt){
                 if (cap == "server_name"){
                     PR_MOVE_STAT(PR_STAT_SERVER_NAME);
                 }
-                else if (c == '}') PR_STAT_POP();
+                else if (c == '}') PR_STAT_ENTITY_POP();
             }break;
             case PR_STAT_SERVER_NAME:{
                 if (c == ';') {
@@ -490,7 +508,7 @@ void pr_parse(struct pr_file_t *f,const char *cnt){
                     else if (c == ';'){
                         currw->rule = new string(cap);;
                         currw->incap = false;
-                        PR_STAT_POP();
+                        PR_STAT_ENTITY_POP();
                     }
                     else PR_CAP();
                 }
@@ -506,7 +524,7 @@ void pr_parse(struct pr_file_t *f,const char *cnt){
                     if (c == ';'){
                         currw->labeled= new string(cap);;
                         currw->incap = false;
-                        PR_STAT_POP();
+                        PR_STAT_ENTITY_POP();
                     }
                     else PR_CAP();
                 }
@@ -534,6 +552,7 @@ void pr_parse(struct pr_file_t *f,const char *cnt){
                 else PR_CAP();
             }break;
             case PR_STAT_IF_BLOCK:{
+                PR_ESCAPE_COMMENT();
                 PR_CAP();
                 if (cap == "rewrite"){
                     pr_entity_t *e = _pr_occur_rewrite(PR_CURENTITY);
@@ -560,8 +579,13 @@ void pr_parse(struct pr_file_t *f,const char *cnt){
                     PR_MOVE_STAT(PR_STAT_IF);
                 }
                 else if (c == '}'){
-                    PR_STAT_POP();
+                    PR_STAT_ENTITY_POP();
                 }
+            }break;
+            case PR_STAT_COMMENT:{
+              if (c == '\n'){
+                  PR_STAT_POP();
+              }
             }break;
             default:break;
         }
@@ -729,12 +753,12 @@ pr_uri_t to_pr_uri(const char *uri){
               if (c == '/'){
                   PR_MOVE_STAT(PR_URI_HOST_OPT2);
               }
-          }
+          }break;
           case PR_URI_HOST_OPT2:{
               if (c == '/'){
                   PR_MOVE_STAT(PR_URI_HOST);
               }
-          }
+          }break;
           case PR_URI_HOST:{
               if (c == '/'){
                 pruri.host = cap;
@@ -742,10 +766,10 @@ pr_uri_t to_pr_uri(const char *uri){
                 cap += "/";
               }
               else PR_CAP();
-          }
+          }break;
           case PR_URI_PATH:{
               PR_CAP();
-          }
+          }break;
         }
     }
     pruri.path = cap;
@@ -776,7 +800,7 @@ const char *pr_getscheme(struct pr_rewrite_t *rw){
     return rw->schemen->c_str();
 }
 
-const char *pr_geturl(struct pr_rewrite_t *rw){
+const char *pr_getoutval(struct pr_rewrite_t *rw){
     return rw->outval->c_str();
 }
 

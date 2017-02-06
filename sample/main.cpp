@@ -17,9 +17,9 @@ int main(int argc, char const *argv[]) {
 
   PRFILE* prfile = pr_creat(buffer);
 
-  PRREWRITE *rewrite = pr_rewrite_matched_creat(prfile, input1);
+  PRREWRITE *rewrite = pr_rewrite_matched_creat(prfile, input2);
 
-  printf("here!");
+  printf("rewrite output %s.\n",pr_getoutval(rewrite));
 
   delete[] buffer;
 

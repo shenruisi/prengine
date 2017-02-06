@@ -18,7 +18,7 @@ PRFILE* pr_creat(char *cnt);
 PRREWRITE* pr_rewrite_matched_creat(PRFILE *f,const char *uri);
 const char *pr_getserver(PRREWRITE *);
 const char *pr_getscheme(PRREWRITE *);
-const char *pr_geturl(PRREWRITE *);
+const char *pr_getoutval(PRREWRITE *);
 const char *pr_getrule(PRREWRITE *);
 void pr_rewritefree(PRREWRITE *);
 #endif /* prengine_h */
