@@ -443,8 +443,26 @@ void pr_parse(struct pr_file_t *f,const char *cnt){
                     PR_STAT_PUSH();
                     PR_MOVE_STAT(PR_STAT_REWRITE);
                 }
-                if (cap == "server_name"){
+                else if (cap == "server_name"){
                     PR_MOVE_STAT(PR_STAT_SERVER_NAME);
+                }
+                else if (cap == "if"){
+                    pr_entity_t *e = _pr_occur_if_block(PR_CURENTITY,PR_IF);
+                    PR_ENTITY_PUSH(e);
+                    PR_STAT_PUSH();
+                    PR_MOVE_STAT(PR_STAT_IF);
+                }
+                else if (cap == "elif"){
+                    pr_entity_t *e = _pr_occur_if_block(PR_CURENTITY,PR_ELIF);
+                    PR_ENTITY_PUSH(e);
+                    PR_STAT_PUSH();
+                    PR_MOVE_STAT(PR_STAT_IF);
+                }
+                else if (cap == "else"){
+                    pr_entity_t *e = _pr_occur_if_block(PR_CURENTITY,PR_ELSE);
+                    PR_ENTITY_PUSH(e);
+                    PR_STAT_PUSH();
+                    PR_MOVE_STAT(PR_STAT_IF);
                 }
                 else if (c == '}') PR_STAT_ENTITY_POP();
             }break;

@@ -16,10 +16,12 @@ int main(int argc, char const *argv[]) {
   buffer[size] = '\0';
 
   PRFILE* prfile = pr_creat(buffer);
-
   PRREWRITE *rewrite = pr_rewrite_matched_creat(prfile, input2);
 
-  printf("rewrite output %s.\n",pr_getoutval(rewrite));
+  if (rewrite)
+      printf("rewrite output %s.\n",pr_getoutval(rewrite));
+  else
+     printf("no matched.\n");
 
   delete[] buffer;
 
