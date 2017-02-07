@@ -11,7 +11,6 @@
 #include <string>
 #include <regex.h>
 
-#include "prengine_val.h"
 #include "cond_ast.h"
 using namespace std;
 
@@ -28,9 +27,9 @@ struct pr_entity_t{
 
 #define pr_safe_delete(__x__) \
 do{\
-    if (__x__){\
-        delete __x__ , __x__ = NULL;\
-    }\
+if (__x__){\
+delete __x__ , __x__ = NULL;\
+}\
 }while(0)
 struct pr_rewrite_t : pr_entity_t{
     string *regex;
@@ -108,6 +107,7 @@ struct pr_scheme_t : pr_entity_t{
 };
 
 struct pr_file_t {
+    pr_id (*valhandler)(const char *vname);
     deque<pr_scheme_t*> *schemeq;
     pr_file_t(){
         schemeq = new deque<pr_scheme_t*>();
@@ -255,47 +255,47 @@ else cap.push_back(c);
 #define PR_ENTITY_PUSH(__entity__)\
 do{\
 if (__entity__ && ( ebt.empty() || __entity__ != ebt.top()))\
-    ebt.push(__entity__);\
+ebt.push(__entity__);\
 }while(0);
 #define PR_STAT_PUSH()\
 do{\
-    sbt.push(stat);\
+sbt.push(stat);\
 }while(0);
 #define PR_CURENTITY ebt.top()
 #define PR_ENTITY_POP()\
 do{\
-    if (!ebt.empty()){\
-        poped = ebt.top();\
-        ebt.pop();\
-    }\
+if (!ebt.empty()){\
+poped = ebt.top();\
+ebt.pop();\
+}\
 }while(0)
 #define PR_STAT_ENTITY_POP()\
 do{\
-    PR_CLEAN_CAP();\
-    if (!sbt.empty()){\
-        stat = sbt.top();\
-        sbt.pop();\
-        PR_ENTITY_POP();\
-    }\
-    else stat = PR_STAT_START;\
+PR_CLEAN_CAP();\
+if (!sbt.empty()){\
+stat = sbt.top();\
+sbt.pop();\
+PR_ENTITY_POP();\
+}\
+else stat = PR_STAT_START;\
 }while(0)
 #define PR_STAT_POP()\
 do{\
-    PR_CLEAN_CAP();\
-    if (!sbt.empty()){\
-        stat = sbt.top();\
-        sbt.pop();\
-    }\
-    else stat = PR_STAT_START;\
+PR_CLEAN_CAP();\
+if (!sbt.empty()){\
+stat = sbt.top();\
+sbt.pop();\
+}\
+else stat = PR_STAT_START;\
 }while(0)
 #define PR_RESCAN_C() i--;
 #define PR_ESCAPE_WHITESPACE() if (c == ' ') continue;
 #define PR_ESCAPE_NEWLINE() if (c == '\r' || c == '\n') continue;
 #define PR_ESCAPE_COMMENT() \
 if (c == '#'){\
-  PR_STAT_PUSH();\
-  PR_MOVE_STAT(PR_STAT_COMMENT);\
-  continue;\
+PR_STAT_PUSH();\
+PR_MOVE_STAT(PR_STAT_COMMENT);\
+continue;\
 }
 
 typedef enum {
@@ -304,7 +304,7 @@ typedef enum {
     EXP_REFLECT_STRJUMP
 }EXP_REFLECT_STAT;
 
-string _reflect_val(string exp){
+string _reflect_val(struct pr_file_t *f, string exp){
     string cap = string();
     string ret = string();
     EXP_REFLECT_STAT stat;
@@ -327,6 +327,11 @@ string _reflect_val(string exp){
             case EXP_REFLECT_VAL:{
                 if (c == ' ' || PRIORITY_UNKNOW != get_operator_priority(string(1,c))){
                     pr_id id = pr_getval(cap.c_str());
+                    if (id == pr_undefined()){
+                        if (f->valhandler) {
+                            id = f->valhandler(cap.c_str());
+                        }
+                    }
                     if (id != pr_undefined()){
                         if (PR_ID_LONGLONG == id.type){
                             char buffer [20];
@@ -562,7 +567,7 @@ void pr_parse(struct pr_file_t *f,const char *cnt){
                 PR_ESCAPE_WHITESPACE();
                 if (c == ')'){
                     pr_if_block_t *ifb = (pr_if_block_t *)PR_CURENTITY;
-                    ifb->cond = _reflect_val(cap);
+                    ifb->cond = _reflect_val(f,cap);
                 }
                 else if (c == '{'){
                     PR_MOVE_STAT(PR_STAT_IF_BLOCK);
@@ -601,9 +606,9 @@ void pr_parse(struct pr_file_t *f,const char *cnt){
                 }
             }break;
             case PR_STAT_COMMENT:{
-              if (c == '\n'){
-                  PR_STAT_POP();
-              }
+                if (c == '\n'){
+                    PR_STAT_POP();
+                }
             }break;
             default:break;
         }
@@ -746,11 +751,11 @@ struct pr_rewrite_t* _pr_search_entityq(deque<pr_entity_t*> *entityq,pr_uri_t ur
 }
 
 typedef enum{
-  PR_URI_SCHEME,
-  PR_URI_HOST_OPT1,
-  PR_URI_HOST_OPT2,
-  PR_URI_HOST,
-  PR_URI_PATH
+    PR_URI_SCHEME,
+    PR_URI_HOST_OPT1,
+    PR_URI_HOST_OPT2,
+    PR_URI_HOST,
+    PR_URI_PATH
 }PR_URI_STAT;
 
 pr_uri_t to_pr_uri(const char *uri){
@@ -760,38 +765,42 @@ pr_uri_t to_pr_uri(const char *uri){
     for(int i = 0; i < strlen(uri); i++){
         char c = uri[i];
         switch (stat) {
-          case PR_URI_SCHEME:{
-              if (c == ':'){
-                  pruri.scheme = cap;
-                  PR_MOVE_STAT(PR_URI_HOST_OPT1);
-              }
-              else PR_CAP();
-          }break;
-          case PR_URI_HOST_OPT1:{
-              if (c == '/'){
-                  PR_MOVE_STAT(PR_URI_HOST_OPT2);
-              }
-          }break;
-          case PR_URI_HOST_OPT2:{
-              if (c == '/'){
-                  PR_MOVE_STAT(PR_URI_HOST);
-              }
-          }break;
-          case PR_URI_HOST:{
-              if (c == '/'){
-                pruri.host = cap;
-                PR_MOVE_STAT(PR_URI_PATH);
-                cap += "/";
-              }
-              else PR_CAP();
-          }break;
-          case PR_URI_PATH:{
-              PR_CAP();
-          }break;
+            case PR_URI_SCHEME:{
+                if (c == ':'){
+                    pruri.scheme = cap;
+                    PR_MOVE_STAT(PR_URI_HOST_OPT1);
+                }
+                else PR_CAP();
+            }break;
+            case PR_URI_HOST_OPT1:{
+                if (c == '/'){
+                    PR_MOVE_STAT(PR_URI_HOST_OPT2);
+                }
+            }break;
+            case PR_URI_HOST_OPT2:{
+                if (c == '/'){
+                    PR_MOVE_STAT(PR_URI_HOST);
+                }
+            }break;
+            case PR_URI_HOST:{
+                if (c == '/'){
+                    pruri.host = cap;
+                    PR_MOVE_STAT(PR_URI_PATH);
+                    cap += "/";
+                }
+                else PR_CAP();
+            }break;
+            case PR_URI_PATH:{
+                PR_CAP();
+            }break;
         }
     }
     pruri.path = cap;
     return pruri;
+}
+
+void pr_set_valhandler(struct pr_file_t *f,pr_id(*valhandler)(const char *vname)){
+    if (f) f->valhandler = valhandler;
 }
 
 struct pr_rewrite_t* pr_rewrite_matched_creat(struct pr_file_t*f,const char *uri){

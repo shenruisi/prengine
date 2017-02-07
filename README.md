@@ -32,5 +32,18 @@ g++ ../package/prengine_val.cpp ../package/cond_ast.cpp ../package/prengine.cpp 
 
 5.调用`void pr_rewritefree(PRREWRITE *)`释放`PRREWRITE`对象。
 
+* 变量注入
+```c++
+pr_id your_handler(const char *vname){
+  if(strcmp(vname, "test") == 0){
+      return pr_yes;
+  }
+  return pr_undefined();
+}
+
+pr_set_valhandler(f /*PRFILE句柄*/,your_handler);
+```
+在config文件将可以使用`$test`变量。
+
 ## LICENSE
 `prengine` is distributed under the BSD license.
