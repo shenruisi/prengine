@@ -32,7 +32,7 @@ g++ ../package/prengine_val.cpp ../package/cond_ast.cpp ../package/prengine.cpp 
 
 5.调用`void pr_rewritefree(PRREWRITE *)`释放`PRREWRITE`对象。
 
-* 变量注入
+## 变量注入
 ```c++
 pr_id your_handler(const char *vname){
   if(strcmp(vname, "test") == 0){
