@@ -36,7 +36,7 @@ g++ ../package/prengine_val.cpp ../package/cond_ast.cpp ../package/prengine.cpp 
 ```c++
 pr_id your_handler(const char *vname){
   if(strcmp(vname, "test") == 0){
-      return pr_yes;
+      return pr_yes();
   }
   return pr_undefined();
 }
