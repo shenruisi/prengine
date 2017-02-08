@@ -250,6 +250,8 @@ pr_entity_t* _pr_occur_if_block(pr_entity_t *curentity,PR_IF_TYPE iftype){
 #define nothing do{;}while(0)
 #define PR_CLEAN_CAP() cap.clear();
 #define PR_CAP() \
+//fix issue #1
+//https://github.com/shenruisi/prengine/issues/1
 if (c == ' ' || c == '\r' || c == '\n' || c == '\t') nothing;\
 else cap.push_back(c);
 #define PR_MOVE_STAT(__new_stat__) do{stat = __new_stat__; PR_CLEAN_CAP();}while(0)
