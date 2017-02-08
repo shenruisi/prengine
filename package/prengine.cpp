@@ -250,7 +250,7 @@ pr_entity_t* _pr_occur_if_block(pr_entity_t *curentity,PR_IF_TYPE iftype){
 #define nothing do{;}while(0)
 #define PR_CLEAN_CAP() cap.clear();
 #define PR_CAP() \
-if (c == ' ' || c == '\r' || c == '\n') nothing;\
+if (c == ' ' || c == '\r' || c == '\n' || c == '\t') nothing;\
 else cap.push_back(c);
 #define PR_MOVE_STAT(__new_stat__) do{stat = __new_stat__; PR_CLEAN_CAP();}while(0)
 #define PR_ENTITY_PUSH(__entity__)\
@@ -355,8 +355,10 @@ string _reflect_val(struct pr_file_t *f, string exp){
                             ret += id.stringValue();
                         }
                     }
-                    PR_MOVE_STAT(EXP_REFLECT_SCAN);
-                    PR_RESCAN_C();
+                    if (i < exp.size() -1 ){
+                        PR_MOVE_STAT(EXP_REFLECT_SCAN);
+                        PR_RESCAN_C();
+                    }
                 }
                 else PR_CAP();
             }
@@ -514,12 +516,12 @@ void pr_parse(struct pr_file_t *f,const char *cnt){
                 }
                 else{
                     if (c == ' '){
-                        currw->replacement = new string(cap);;
+                        currw->replacement = new string(cap);
                         currw->incap = false;
                         PR_MOVE_STAT(PR_STAT_REWRITE_RULE);
                     }
                     else if (c == ';'){
-                        currw->replacement = new string(cap);;
+                        currw->replacement = new string(cap);
                         currw->incap = false;
                         PR_STAT_ENTITY_POP();
                     }
