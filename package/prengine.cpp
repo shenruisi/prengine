@@ -831,19 +831,39 @@ struct pr_rewrite_t* pr_rewrite_matched_creat(struct pr_file_t*f,const char *uri
 }
 
 const char *pr_getserver(struct pr_rewrite_t *rw){
-    return rw->servern->c_str();
+    if (rw){
+      if (rw->servern){
+        return rw->servern->c_str();
+      }
+    }
+    return NULL;
 }
 
 const char *pr_getscheme(struct pr_rewrite_t *rw){
-    return rw->schemen->c_str();
+    if (rw){
+      if (rw->schemen){
+        return rw->schemen->c_str();
+      }
+    }
+    return NULL;
 }
 
 const char *pr_getoutval(struct pr_rewrite_t *rw){
-    return rw->outval->c_str();
+    if (rw){
+      if (rw->outval){
+        return rw->outval->c_str();
+      }
+    }
+    return NULL;
 }
 
 const char *pr_getrule(struct pr_rewrite_t *rw){
-    return rw->rule->c_str();
+    if (rw){
+      if (rw->rule){
+        return rw->rule->c_str();
+      }
+    }
+    return NULL;
 }
 
 void pr_rewritefree(struct pr_rewrite_t *rw){
