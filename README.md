@@ -1,5 +1,5 @@
 # prengine
-[![GitHub license](https://img.shields.io/pypi/l/Django.svg)](https://raw.githubusercontent.com/shenruisi/prengine/master/LICENSE)
+[![GitHub license](https://img.shields.io/badge/license-New%20BSD-blue.svg)](https://raw.githubusercontent.com/shenruisi/prengine/master/LICENSE)
 
 `Poor Router Engine` 一种用来帮助客户端实现更好的路由解决方案的rewrite引擎，可以用于客户端页面路由，模块解耦。
 ## 设计
