@@ -518,6 +518,11 @@ void pr_parse(struct pr_file_t *f,const char *cnt){
                         currw->incap = false;
                         PR_MOVE_STAT(PR_STAT_REWRITE_RULE);
                     }
+                    else if (c == ';'){
+                        currw->replacement = new string(cap);;
+                        currw->incap = false;
+                        PR_STAT_ENTITY_POP();
+                    }
                     else PR_CAP();
                 }
             }break;
