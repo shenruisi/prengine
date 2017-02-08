@@ -23,7 +23,7 @@ g++ ../package/prengine_val.cpp ../package/cond_ast.cpp ../package/prengine.cpp 
 ## 使用
 1.`include "prengine.h"`
 
-2.调用`PRFILE* pr_creat(char *cnt)`来装载config文件
+2.调用`PRFILE* pr_creat(char *cnt, VAL_HANDlER valhandler)`来装载config文件
 
 3.调用`PRREWRITE* pr_rewrite_matched_creat(PRFILE *f,const char *uri)` 传入`PRFILE`句柄和需要转化的`URI`,得到相应的`PRREWRITE`对象。
 
@@ -41,7 +41,7 @@ pr_id your_handler(const char *vname){
   return pr_undefined();
 }
 
-pr_set_valhandler(f /*PRFILE句柄*/,your_handler);
+pr_creat(f /*PRFILE句柄*/,your_handler);
 ```
 在config文件将可以使用`$test`变量。
 

@@ -15,9 +15,10 @@
 typedef struct pr_file_t PRFILE;
 typedef struct pr_rewrite_t PRREWRITE;
 
-PRFILE* pr_creat(char *cnt);
+typedef pr_id(*VAL_HANDLER)(const char *vname);
+
+PRFILE* pr_creat(char *cnt,VAL_HANDLER valhandler);
 PRREWRITE* pr_rewrite_matched_creat(PRFILE *f,const char *uri);
-void pr_set_valhandler(PRFILE *f,pr_id(*valhandler)(const char *vname));
 const char *pr_getserver(PRREWRITE *);
 const char *pr_getscheme(PRREWRITE *);
 const char *pr_getoutval(PRREWRITE *);

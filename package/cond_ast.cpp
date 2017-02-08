@@ -227,7 +227,6 @@ cond_node* cond_ast_creat(string exp){
 }
 
 
-
 pr_id _post_order_traverse(cond_node *op){
     if (op == NULL) return pr_undefined();
     pr_id left = _post_order_traverse(op->left);
@@ -252,6 +251,20 @@ pr_id _post_order_traverse(cond_node *op){
             else{
                 return right;
             }
+        }
+        else if (right == pr_undefined() && NULL == op->val){ //单一节点情况,进行布尔转化
+            if (PR_ID_LONGLONG == left.type){
+                if (left.longLongValue() > 0) return pr_yes();
+                else return pr_no();
+            }
+            else if (PR_ID_DOUBLE == left.type){
+                if (left.doubleValue() > 0) return pr_yes();
+                else return pr_no();
+            }
+            else if (PR_ID_STRING == left.type){
+                return left.stringValue().empty()? pr_no():pr_yes();
+            }
+            else return pr_undefined();
         }
         else {
             string operatorstr = op->val->stringValue();

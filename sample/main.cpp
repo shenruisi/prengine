@@ -2,6 +2,14 @@
 #include <stdio.h>
 #include <string>
 using namespace std;
+
+pr_id sample_handler(const char *vname){
+  if(strcmp(vname, "test") == 0){
+      return pr_yes();
+  }
+  return pr_undefined();
+}
+
 int main(int argc, char const *argv[]) {
   //输入的路由地址
   const char *input1 = "http://taofen8.com/home";
@@ -15,7 +23,8 @@ int main(int argc, char const *argv[]) {
   fread(buffer , 1 , size , fp);
   buffer[size] = '\0';
 
-  PRFILE* prfile = pr_creat(buffer);
+  PRFILE* prfile = pr_creat(buffer,sample_handler);
+
   PRREWRITE *rewrite = pr_rewrite_matched_creat(prfile, input2);
 
   if (rewrite)

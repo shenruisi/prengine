@@ -12,6 +12,7 @@
 #include <regex.h>
 
 #include "cond_ast.h"
+#include "prengine.h"
 using namespace std;
 
 typedef enum{
@@ -107,7 +108,7 @@ struct pr_scheme_t : pr_entity_t{
 };
 
 struct pr_file_t {
-    pr_id (*valhandler)(const char *vname);
+    VAL_HANDLER valhandler;
     deque<pr_scheme_t*> *schemeq;
     pr_file_t(){
         schemeq = new deque<pr_scheme_t*>();
@@ -325,7 +326,12 @@ string _reflect_val(struct pr_file_t *f, string exp){
             }
                 break;
             case EXP_REFLECT_VAL:{
-                if (c == ' ' || PRIORITY_UNKNOW != get_operator_priority(string(1,c))){
+                if (c == ' '
+                || PRIORITY_UNKNOW != get_operator_priority(string(1,c))
+                || ((i == exp.size()-1) && PRIORITY_UNKNOW == get_operator_priority(string(1,c)))){
+                    if (i == exp.size()-1) {
+                        PR_CAP();
+                    }
                     pr_id id = pr_getval(cap.c_str());
                     if (id == pr_undefined()){
                         if (f->valhandler) {
@@ -615,9 +621,9 @@ void pr_parse(struct pr_file_t *f,const char *cnt){
     }
 }
 
-struct pr_file_t* pr_creat(char *cnt){
+struct pr_file_t* pr_creat(char *cnt, VAL_HANDLER valhandler){
     pr_file_t *prf = new pr_file_t();
-
+    prf->valhandler = valhandler;
     pr_parse(prf,cnt);
 
     // _pr_printfile(prf);
@@ -797,10 +803,6 @@ pr_uri_t to_pr_uri(const char *uri){
     }
     pruri.path = cap;
     return pruri;
-}
-
-void pr_set_valhandler(struct pr_file_t *f,pr_id(*valhandler)(const char *vname)){
-    if (f) f->valhandler = valhandler;
 }
 
 struct pr_rewrite_t* pr_rewrite_matched_creat(struct pr_file_t*f,const char *uri){
