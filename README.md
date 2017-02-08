@@ -1,4 +1,6 @@
 # prengine
+[![GitHub license](https://img.shields.io/badge/license-New%20BSD-blue.svg)](https://raw.githubusercontent.com/shenruisi/prengine/master/LICENSE)
+
 `Poor Router Engine` 一种用来帮助客户端实现更好的路由解决方案的rewrite引擎，可以用于客户端页面路由，模块解耦。
 ## 设计
 通过`prengine`，你可以使用部分`nginx`语法来描写配置文件，`prengine`将会解析输入的URI，并根
@@ -44,6 +46,3 @@ pr_id your_handler(const char *vname){
 pr_creat(f /*PRFILE句柄*/,your_handler);
 ```
 在config文件将可以使用`$test`变量。
-
-## LICENSE
-`prengine` is distributed under the BSD license.
