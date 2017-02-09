@@ -1,5 +1,5 @@
 # prengine
-[![GitHub license](https://img.shields.io/badge/contact-@shenruisi-orange.svg?style=flat)](mailto:tigris.shin@gmail.com)
+[![Contact](https://img.shields.io/badge/contact-shenruisi-orange.svg)](mailto:tigris.shin@gmail.com)
 [![GitHub license](https://img.shields.io/badge/license-BSD-blue.svg?style=flat)](https://github.com/shenruisi/prengine/blob/master/LICENSE)
 
 `Poor Router Engine` 一种用来帮助客户端实现更好的路由解决方案的rewrite引擎，可以用于客户端页面路由，模块解耦。
@@ -22,7 +22,12 @@ g++ ../package/prengine_val.cpp ../package/cond_ast.cpp ../package/prengine.cpp 
 查看结果。
 
 ## 安装
+
+* 直接安装
 拷贝`package/`目录下的 `prengine.h`,`prengine.cpp`,`prengine_val.h`,`prengine_val.cpp`,`cond_ast.h`,`cond_ast.cpp`到目标目录即可。
+
+* 获取.a或者.so文件
+进入`package/`目录 运行make 在`bin/`目录下获取.a或者.so文件。
 
 ## 使用
 1.`include "prengine.h"`
