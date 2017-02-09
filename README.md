@@ -1,6 +1,6 @@
 # prengine
-[![Contact](https://img.shields.io/badge/contact-shenruisi-orange.svg)](mailto:tigris.shin@gmail.com)
 [![Contact me](https://img.shields.io/badge/contact-me-orange.svg)](mailto:tigris.shin@gmail.com)
+[![GitHub license](https://img.shields.io/badge/license-BSD-blue.svg?style=flat)](https://github.com/shenruisi/prengine/blob/master/LICENSE)
 
 `Poor Router Engine` 一种用来帮助客户端实现更好的路由解决方案的rewrite引擎，可以用于客户端页面路由，模块解耦。
 
