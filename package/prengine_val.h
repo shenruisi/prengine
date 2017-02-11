@@ -9,7 +9,7 @@
 #ifndef prengine_val_hpp
 #define prengine_val_hpp
 
-using std::string;
+using namespace std::string;
 #include <string>
 
 typedef enum {
