@@ -120,7 +120,7 @@ Pod::Spec.new do |s|
   # s.framework  = "SomeFramework"
   # s.frameworks = "SomeFramework", "AnotherFramework"
 
-  s.library   = "stdc++"
+  s.library = 'c++'
   # s.libraries = "iconv", "xml2"
 
 
@@ -134,5 +134,10 @@ Pod::Spec.new do |s|
 
   # s.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libxml2" }
   # s.dependency "JSONKit", "~> 1.4"
+
+  s.xcconfig = {
+   'CLANG_CXX_LANGUAGE_STANDARD' => 'c++11',
+   'CLANG_CXX_LIBRARY' => 'libc++'
+ }
 
 end

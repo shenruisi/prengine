@@ -10,7 +10,7 @@
 #define prengine_val_hpp
 
 #include <stdio.h>
-#include <string>
+#include <string.h>
 typedef enum {
     PR_ID_LONGLONG,
     PR_ID_DOUBLE,
@@ -33,13 +33,13 @@ public:
     pr_id(double);
     pr_id(long long);
     pr_id(string);
-    
+
     double doubleValue();
     long long longLongValue();
     string stringValue();
-    
+
     void print();
-    
+
     pr_id operator+(const pr_id &);
     pr_id operator-(const pr_id &);
     pr_id operator*(const pr_id &);
