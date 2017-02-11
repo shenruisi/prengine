@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "prengine"
-  s.version      = "0.1.0-beta.2"
+  s.version      = "0.1.0-beta.1"
   s.summary      = "A static library of prengine."
 
   # This description is used to generate tags and improve search results.
@@ -64,7 +64,7 @@ Pod::Spec.new do |s|
   #  the deployment target. You can optionally include the target after the platform.
   #
 
-  #s.platform     = :ios
+  s.platform     = :ios
   # s.platform     = :ios, "5.0"
 
   #  When using multiple platforms
@@ -80,7 +80,7 @@ Pod::Spec.new do |s|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  s.source       = { :git => "https://github.com/shenruisi/prengine.git" }
+  s.source       = { :git => "https://github.com/shenruisi/prengine.git"}
     #:tag => "#{s.version}" }
 
 
@@ -92,7 +92,7 @@ Pod::Spec.new do |s|
   #  Not including the public_header_files will make all headers public.
   #
 
-  s.source_files  = 'package/*.cpp'
+  s.source_files  = 'package/*.{cpp,h}'
   #s.exclude_files = "Classes/Exclude"
   #s.public_header_files = 'package/*.h'
 
