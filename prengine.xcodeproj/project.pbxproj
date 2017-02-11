@@ -13,7 +13,6 @@
 		58B49C891E4ECD6100DBE6ED /* cond_ast.h in Headers */ = {isa = PBXBuildFile; fileRef = 58B49C861E4ECD6100DBE6ED /* cond_ast.h */; };
 		58B49C8A1E4ECD6100DBE6ED /* prengine_val.h in Headers */ = {isa = PBXBuildFile; fileRef = 58B49C871E4ECD6100DBE6ED /* prengine_val.h */; };
 		58B49C8B1E4ECD6100DBE6ED /* prengine.h in Headers */ = {isa = PBXBuildFile; fileRef = 58B49C881E4ECD6100DBE6ED /* prengine.h */; };
-		58B49C8D1E4ED02E00DBE6ED /* libstdc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 58B49C8C1E4ED02E00DBE6ED /* libstdc++.tbd */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -44,7 +43,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				58B49C8D1E4ED02E00DBE6ED /* libstdc++.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -237,7 +235,8 @@
 		5826C6F31E4D4CC30037BA83 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CLANG_CXX_LIBRARY = "libstdc++";
+				CLANG_CXX_LANGUAGE_STANDARD = "compiler-default";
+				CLANG_CXX_LIBRARY = "compiler-default";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/prengine/package/bin",
@@ -252,7 +251,8 @@
 		5826C6F41E4D4CC30037BA83 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CLANG_CXX_LIBRARY = "libstdc++";
+				CLANG_CXX_LANGUAGE_STANDARD = "compiler-default";
+				CLANG_CXX_LIBRARY = "compiler-default";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/prengine/package/bin",
