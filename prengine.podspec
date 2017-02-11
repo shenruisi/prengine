@@ -81,6 +81,7 @@ Pod::Spec.new do |s|
   #
 
   s.source       = { :git => "https://github.com/shenruisi/prengine.git", :tag => "#{s.version}" }
+    #:tag => "#{s.version}" }
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -91,9 +92,9 @@ Pod::Spec.new do |s|
   #  Not including the public_header_files will make all headers public.
   #
 
-  s.source_files  = "package/*.cpp"
+  s.source_files  = 'package/*.cpp'
   #s.exclude_files = "Classes/Exclude"
-  s.public_header_files = "package/*.h"
+  s.public_header_files = 'package/*.h'
 
 
   # ――― Resources ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
