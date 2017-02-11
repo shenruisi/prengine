@@ -9,8 +9,9 @@
 #ifndef prengine_val_hpp
 #define prengine_val_hpp
 
-using namespace std;
+
 #include <string>
+using namespace std;
 
 typedef enum {
     PR_ID_LONGLONG,
