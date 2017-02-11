@@ -10,7 +10,7 @@
 #define prengine_val_hpp
 
 #include <stdio.h>
-#include <string.h>
+#include <iostream>
 typedef enum {
     PR_ID_LONGLONG,
     PR_ID_DOUBLE,
