@@ -12,11 +12,9 @@ DEPS = $(patsubst %,$(PACKAGE_DIR)/%,$(_DEPS))
 _OBJ = prengine_val.o cond_ast.o prengine.o
 OBJ = $(patsubst %,$(PACKAGE_DIR)/%,$(_OBJ))
 VERSION = 0.1.0-beta.1
-IOS_DIR = ./ios/prengine
-IOS_BUILD_DIR := $(IOS_DIR)/build
+IOS_BUILD_DIR = ./build
 IOS_SIMULATOR_DIR := $(IOS_BUILD_DIR)/Release-iphonesimulator
 IOS_DEVICE_DIR := $(IOS_BUILD_DIR)/Release-iphoneos
-PROJECT_NAME = prengine.xcodeproj
 export platform = x86
 
 prengine: $(OBJ)
@@ -28,8 +26,8 @@ ifeq ($(platform), x86)
 endif
 
 ifeq ($(platform), ios)
-	xcodebuild -project $(IOS_DIR)/$(PROJECT_NAME) ARCHS='i386 x86_64' -sdk iphonesimulator
-	xcodebuild -project $(IOS_DIR)/$(PROJECT_NAME) ARCHS='armv7 armv7s arm64' -sdk iphoneos
+	xcodebuild -project prengine.xcodeproj ARCHS='i386 x86_64' -sdk iphonesimulator
+	xcodebuild -project prengine.xcodeproj ARCHS='armv7 armv7s arm64' -sdk iphoneos
 	lipo -create $(IOS_SIMULATOR_DIR)/$(LIB_NAME).a $(IOS_DEVICE_DIR)/$(LIB_NAME).a -output $(TAR_DIR)/$(LIB_NAME)-$(VERSION).a
 	rm -rf $(IOS_BUILD_DIR)
 endif
