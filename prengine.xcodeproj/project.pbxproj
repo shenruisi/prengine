@@ -7,12 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		58B49C7A1E4EC6EE00DBE6ED /* cond_ast.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 58B49C741E4EC6EE00DBE6ED /* cond_ast.cpp */; };
-		58B49C7B1E4EC6EE00DBE6ED /* cond_ast.h in Headers */ = {isa = PBXBuildFile; fileRef = 58B49C751E4EC6EE00DBE6ED /* cond_ast.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		58B49C7C1E4EC6EE00DBE6ED /* prengine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 58B49C761E4EC6EE00DBE6ED /* prengine.cpp */; };
-		58B49C7D1E4EC6EE00DBE6ED /* prengine.h in Headers */ = {isa = PBXBuildFile; fileRef = 58B49C771E4EC6EE00DBE6ED /* prengine.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		58B49C7E1E4EC6EE00DBE6ED /* prengine_val.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 58B49C781E4EC6EE00DBE6ED /* prengine_val.cpp */; };
-		58B49C7F1E4EC6EE00DBE6ED /* prengine_val.h in Headers */ = {isa = PBXBuildFile; fileRef = 58B49C791E4EC6EE00DBE6ED /* prengine_val.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		58B49C831E4ECD4C00DBE6ED /* cond_ast.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 58B49C801E4ECD4C00DBE6ED /* cond_ast.cpp */; };
+		58B49C841E4ECD4C00DBE6ED /* prengine_val.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 58B49C811E4ECD4C00DBE6ED /* prengine_val.cpp */; };
+		58B49C851E4ECD4C00DBE6ED /* prengine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 58B49C821E4ECD4C00DBE6ED /* prengine.cpp */; };
+		58B49C891E4ECD6100DBE6ED /* cond_ast.h in Headers */ = {isa = PBXBuildFile; fileRef = 58B49C861E4ECD6100DBE6ED /* cond_ast.h */; };
+		58B49C8A1E4ECD6100DBE6ED /* prengine_val.h in Headers */ = {isa = PBXBuildFile; fileRef = 58B49C871E4ECD6100DBE6ED /* prengine_val.h */; };
+		58B49C8B1E4ECD6100DBE6ED /* prengine.h in Headers */ = {isa = PBXBuildFile; fileRef = 58B49C881E4ECD6100DBE6ED /* prengine.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -29,12 +29,12 @@
 
 /* Begin PBXFileReference section */
 		5826C6E91E4D4CC30037BA83 /* libprengine.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libprengine.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		58B49C741E4EC6EE00DBE6ED /* cond_ast.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = cond_ast.cpp; sourceTree = "<group>"; };
-		58B49C751E4EC6EE00DBE6ED /* cond_ast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cond_ast.h; sourceTree = "<group>"; };
-		58B49C761E4EC6EE00DBE6ED /* prengine.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = prengine.cpp; sourceTree = "<group>"; };
-		58B49C771E4EC6EE00DBE6ED /* prengine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = prengine.h; sourceTree = "<group>"; };
-		58B49C781E4EC6EE00DBE6ED /* prengine_val.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = prengine_val.cpp; sourceTree = "<group>"; };
-		58B49C791E4EC6EE00DBE6ED /* prengine_val.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = prengine_val.h; sourceTree = "<group>"; };
+		58B49C801E4ECD4C00DBE6ED /* cond_ast.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = cond_ast.cpp; path = package/cond_ast.cpp; sourceTree = "<group>"; };
+		58B49C811E4ECD4C00DBE6ED /* prengine_val.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = prengine_val.cpp; path = package/prengine_val.cpp; sourceTree = "<group>"; };
+		58B49C821E4ECD4C00DBE6ED /* prengine.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = prengine.cpp; path = package/prengine.cpp; sourceTree = "<group>"; };
+		58B49C861E4ECD6100DBE6ED /* cond_ast.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = cond_ast.h; path = package/cond_ast.h; sourceTree = "<group>"; };
+		58B49C871E4ECD6100DBE6ED /* prengine_val.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = prengine_val.h; path = package/prengine_val.h; sourceTree = "<group>"; };
+		58B49C881E4ECD6100DBE6ED /* prengine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = prengine.h; path = package/prengine.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,7 +51,12 @@
 		5826C6E01E4D4CC30037BA83 = {
 			isa = PBXGroup;
 			children = (
-				58B49C731E4EC6EE00DBE6ED /* package */,
+				58B49C861E4ECD6100DBE6ED /* cond_ast.h */,
+				58B49C871E4ECD6100DBE6ED /* prengine_val.h */,
+				58B49C881E4ECD6100DBE6ED /* prengine.h */,
+				58B49C801E4ECD4C00DBE6ED /* cond_ast.cpp */,
+				58B49C811E4ECD4C00DBE6ED /* prengine_val.cpp */,
+				58B49C821E4ECD4C00DBE6ED /* prengine.cpp */,
 				5826C6EA1E4D4CC30037BA83 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -64,19 +69,6 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		58B49C731E4EC6EE00DBE6ED /* package */ = {
-			isa = PBXGroup;
-			children = (
-				58B49C741E4EC6EE00DBE6ED /* cond_ast.cpp */,
-				58B49C751E4EC6EE00DBE6ED /* cond_ast.h */,
-				58B49C761E4EC6EE00DBE6ED /* prengine.cpp */,
-				58B49C771E4EC6EE00DBE6ED /* prengine.h */,
-				58B49C781E4EC6EE00DBE6ED /* prengine_val.cpp */,
-				58B49C791E4EC6EE00DBE6ED /* prengine_val.h */,
-			);
-			path = package;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -84,9 +76,9 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				58B49C7D1E4EC6EE00DBE6ED /* prengine.h in Headers */,
-				58B49C7B1E4EC6EE00DBE6ED /* cond_ast.h in Headers */,
-				58B49C7F1E4EC6EE00DBE6ED /* prengine_val.h in Headers */,
+				58B49C891E4ECD6100DBE6ED /* cond_ast.h in Headers */,
+				58B49C8A1E4ECD6100DBE6ED /* prengine_val.h in Headers */,
+				58B49C8B1E4ECD6100DBE6ED /* prengine.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -147,9 +139,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				58B49C7A1E4EC6EE00DBE6ED /* cond_ast.cpp in Sources */,
-				58B49C7C1E4EC6EE00DBE6ED /* prengine.cpp in Sources */,
-				58B49C7E1E4EC6EE00DBE6ED /* prengine_val.cpp in Sources */,
+				58B49C831E4ECD4C00DBE6ED /* cond_ast.cpp in Sources */,
+				58B49C841E4ECD4C00DBE6ED /* prengine_val.cpp in Sources */,
+				58B49C851E4ECD4C00DBE6ED /* prengine.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

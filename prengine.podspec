@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "prengine"
-  s.version      = "0.1.0-beta.1"
+  s.version      = "0.1.0-beta.2"
   s.summary      = "A static library of prengine."
 
   # This description is used to generate tags and improve search results.
@@ -94,7 +94,7 @@ Pod::Spec.new do |s|
 
   s.source_files  = 'package/*.cpp'
   #s.exclude_files = "Classes/Exclude"
-  s.public_header_files = 'package/*.h'
+  #s.public_header_files = 'package/*.h'
 
 
   # ――― Resources ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
