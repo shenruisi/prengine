@@ -9,7 +9,7 @@
 #ifndef prengine_val_hpp
 #define prengine_val_hpp
 
-
+using std::string;
 #include <string>
 
 typedef enum {
@@ -18,7 +18,7 @@ typedef enum {
     PR_ID_STRING
 }PR_ID_TYPE;
 
-using namespace std;
+
 
 class pr_id{
 public:
