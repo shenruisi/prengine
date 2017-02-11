@@ -80,7 +80,7 @@ Pod::Spec.new do |s|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  s.source       = { :git => "https://github.com/shenruisi/prengine.git", :tag => "#{s.version}" }
+  s.source       = { :git => "https://github.com/shenruisi/prengine.git" }
     #:tag => "#{s.version}" }
 
 
@@ -120,7 +120,7 @@ Pod::Spec.new do |s|
   # s.framework  = "SomeFramework"
   # s.frameworks = "SomeFramework", "AnotherFramework"
 
-  # s.library   = "iconv"
+  s.library   = "stdc++"
   # s.libraries = "iconv", "xml2"
 
 

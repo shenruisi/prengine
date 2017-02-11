@@ -13,6 +13,7 @@
 		58B49C891E4ECD6100DBE6ED /* cond_ast.h in Headers */ = {isa = PBXBuildFile; fileRef = 58B49C861E4ECD6100DBE6ED /* cond_ast.h */; };
 		58B49C8A1E4ECD6100DBE6ED /* prengine_val.h in Headers */ = {isa = PBXBuildFile; fileRef = 58B49C871E4ECD6100DBE6ED /* prengine_val.h */; };
 		58B49C8B1E4ECD6100DBE6ED /* prengine.h in Headers */ = {isa = PBXBuildFile; fileRef = 58B49C881E4ECD6100DBE6ED /* prengine.h */; };
+		58B49C8D1E4ED02E00DBE6ED /* libstdc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 58B49C8C1E4ED02E00DBE6ED /* libstdc++.tbd */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -35,6 +36,7 @@
 		58B49C861E4ECD6100DBE6ED /* cond_ast.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = cond_ast.h; path = package/cond_ast.h; sourceTree = "<group>"; };
 		58B49C871E4ECD6100DBE6ED /* prengine_val.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = prengine_val.h; path = package/prengine_val.h; sourceTree = "<group>"; };
 		58B49C881E4ECD6100DBE6ED /* prengine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = prengine.h; path = package/prengine.h; sourceTree = "<group>"; };
+		58B49C8C1E4ED02E00DBE6ED /* libstdc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.tbd"; path = "usr/lib/libstdc++.tbd"; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -42,6 +44,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				58B49C8D1E4ED02E00DBE6ED /* libstdc++.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -51,6 +54,7 @@
 		5826C6E01E4D4CC30037BA83 = {
 			isa = PBXGroup;
 			children = (
+				58B49C8C1E4ED02E00DBE6ED /* libstdc++.tbd */,
 				58B49C861E4ECD6100DBE6ED /* cond_ast.h */,
 				58B49C871E4ECD6100DBE6ED /* prengine_val.h */,
 				58B49C881E4ECD6100DBE6ED /* prengine.h */,
