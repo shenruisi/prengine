@@ -92,7 +92,7 @@ Pod::Spec.new do |s|
   #  Not including the public_header_files will make all headers public.
   #
 
-  s.source_files  = 'package/*.{cpp,h}'
+  s.source_files  = 'package/*.{cpp,hpp}'
   #s.exclude_files = "Classes/Exclude"
   #s.public_header_files = 'package/*.h'
 
@@ -117,10 +117,11 @@ Pod::Spec.new do |s|
   #  the lib prefix of their name.
   #
 
+  s.requires_arc = true
   # s.framework  = "SomeFramework"
   # s.frameworks = "SomeFramework", "AnotherFramework"
 
-  #s.library = 'c++'
+  s.library = 'stdc++'
   # s.libraries = "iconv", "xml2"
 
 
@@ -135,9 +136,9 @@ Pod::Spec.new do |s|
   # s.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libxml2" }
   # s.dependency "JSONKit", "~> 1.4"
 
- #  s.xcconfig = {
- #   'CLANG_CXX_LANGUAGE_STANDARD' => 'c++11',
- #   'CLANG_CXX_LIBRARY' => 'libc++'
- # }
+  s.xcconfig = {
+   'CLANG_CXX_LANGUAGE_STANDARD' => 'gnu++11',
+   'CLANG_CXX_LIBRARY' => 'libstdc++'
+ }
 
 end

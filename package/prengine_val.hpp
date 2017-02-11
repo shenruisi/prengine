@@ -12,7 +12,6 @@
 
 #include <string>
 using namespace std;
-
 typedef enum {
     PR_ID_LONGLONG,
     PR_ID_DOUBLE,
