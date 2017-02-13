@@ -7,12 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		58B49CAD1E5154D300DBE6ED /* cond_ast.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 58B49CAA1E5154D300DBE6ED /* cond_ast.cpp */; };
-		58B49CAE1E5154D300DBE6ED /* prengine_val.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 58B49CAB1E5154D300DBE6ED /* prengine_val.cpp */; };
-		58B49CAF1E5154D300DBE6ED /* prengine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 58B49CAC1E5154D300DBE6ED /* prengine.cpp */; };
-		58B49CB51E51551700DBE6ED /* cond_ast.h in Headers */ = {isa = PBXBuildFile; fileRef = 58B49CB21E51551700DBE6ED /* cond_ast.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		58B49CB61E51551700DBE6ED /* prengine_val.h in Headers */ = {isa = PBXBuildFile; fileRef = 58B49CB31E51551700DBE6ED /* prengine_val.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		58B49CB71E51551700DBE6ED /* prengine.h in Headers */ = {isa = PBXBuildFile; fileRef = 58B49CB41E51551700DBE6ED /* prengine.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		58B49CBF1E51575300DBE6ED /* cond_ast.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 58B49CB91E51575300DBE6ED /* cond_ast.cpp */; };
+		58B49CC01E51575300DBE6ED /* cond_ast.h in Headers */ = {isa = PBXBuildFile; fileRef = 58B49CBA1E51575300DBE6ED /* cond_ast.h */; };
+		58B49CC11E51575300DBE6ED /* prengine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 58B49CBB1E51575300DBE6ED /* prengine.cpp */; };
+		58B49CC21E51575300DBE6ED /* prengine.h in Headers */ = {isa = PBXBuildFile; fileRef = 58B49CBC1E51575300DBE6ED /* prengine.h */; };
+		58B49CC31E51575300DBE6ED /* prengine_val.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 58B49CBD1E51575300DBE6ED /* prengine_val.cpp */; };
+		58B49CC41E51575300DBE6ED /* prengine_val.h in Headers */ = {isa = PBXBuildFile; fileRef = 58B49CBE1E51575300DBE6ED /* prengine_val.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -29,12 +29,12 @@
 
 /* Begin PBXFileReference section */
 		58B49C9E1E51549C00DBE6ED /* libprengine-ios.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libprengine-ios.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		58B49CAA1E5154D300DBE6ED /* cond_ast.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = cond_ast.cpp; path = ../package/cond_ast.cpp; sourceTree = "<group>"; };
-		58B49CAB1E5154D300DBE6ED /* prengine_val.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = prengine_val.cpp; path = ../package/prengine_val.cpp; sourceTree = "<group>"; };
-		58B49CAC1E5154D300DBE6ED /* prengine.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = prengine.cpp; path = ../package/prengine.cpp; sourceTree = "<group>"; };
-		58B49CB21E51551700DBE6ED /* cond_ast.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = cond_ast.h; path = ../package/cond_ast.h; sourceTree = "<group>"; };
-		58B49CB31E51551700DBE6ED /* prengine_val.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = prengine_val.h; path = ../package/prengine_val.h; sourceTree = "<group>"; };
-		58B49CB41E51551700DBE6ED /* prengine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = prengine.h; path = ../package/prengine.h; sourceTree = "<group>"; };
+		58B49CB91E51575300DBE6ED /* cond_ast.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = cond_ast.cpp; sourceTree = "<group>"; };
+		58B49CBA1E51575300DBE6ED /* cond_ast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cond_ast.h; sourceTree = "<group>"; };
+		58B49CBB1E51575300DBE6ED /* prengine.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = prengine.cpp; sourceTree = "<group>"; };
+		58B49CBC1E51575300DBE6ED /* prengine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = prengine.h; sourceTree = "<group>"; };
+		58B49CBD1E51575300DBE6ED /* prengine_val.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = prengine_val.cpp; sourceTree = "<group>"; };
+		58B49CBE1E51575300DBE6ED /* prengine_val.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = prengine_val.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,12 +51,6 @@
 		58B49C951E51549C00DBE6ED = {
 			isa = PBXGroup;
 			children = (
-				58B49CB21E51551700DBE6ED /* cond_ast.h */,
-				58B49CB31E51551700DBE6ED /* prengine_val.h */,
-				58B49CB41E51551700DBE6ED /* prengine.h */,
-				58B49CAA1E5154D300DBE6ED /* cond_ast.cpp */,
-				58B49CAB1E5154D300DBE6ED /* prengine_val.cpp */,
-				58B49CAC1E5154D300DBE6ED /* prengine.cpp */,
 				58B49CA01E51549C00DBE6ED /* prengine-ios */,
 				58B49C9F1E51549C00DBE6ED /* Products */,
 			);
@@ -73,8 +67,22 @@
 		58B49CA01E51549C00DBE6ED /* prengine-ios */ = {
 			isa = PBXGroup;
 			children = (
+				58B49CB81E51575300DBE6ED /* package */,
 			);
 			path = "prengine-ios";
+			sourceTree = "<group>";
+		};
+		58B49CB81E51575300DBE6ED /* package */ = {
+			isa = PBXGroup;
+			children = (
+				58B49CB91E51575300DBE6ED /* cond_ast.cpp */,
+				58B49CBA1E51575300DBE6ED /* cond_ast.h */,
+				58B49CBB1E51575300DBE6ED /* prengine.cpp */,
+				58B49CBC1E51575300DBE6ED /* prengine.h */,
+				58B49CBD1E51575300DBE6ED /* prengine_val.cpp */,
+				58B49CBE1E51575300DBE6ED /* prengine_val.h */,
+			);
+			path = package;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -84,9 +92,9 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				58B49CB51E51551700DBE6ED /* cond_ast.h in Headers */,
-				58B49CB61E51551700DBE6ED /* prengine_val.h in Headers */,
-				58B49CB71E51551700DBE6ED /* prengine.h in Headers */,
+				58B49CC21E51575300DBE6ED /* prengine.h in Headers */,
+				58B49CC01E51575300DBE6ED /* cond_ast.h in Headers */,
+				58B49CC41E51575300DBE6ED /* prengine_val.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -147,9 +155,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				58B49CAD1E5154D300DBE6ED /* cond_ast.cpp in Sources */,
-				58B49CAE1E5154D300DBE6ED /* prengine_val.cpp in Sources */,
-				58B49CAF1E5154D300DBE6ED /* prengine.cpp in Sources */,
+				58B49CBF1E51575300DBE6ED /* cond_ast.cpp in Sources */,
+				58B49CC11E51575300DBE6ED /* prengine.cpp in Sources */,
+				58B49CC31E51575300DBE6ED /* prengine_val.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

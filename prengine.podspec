@@ -93,8 +93,8 @@ Pod::Spec.new do |s|
   #  Not including the public_header_files will make all headers public.
   #
 
-  s.source_files  = 'package/*.cpp'
-  s.public_header_files = 'package/*.h'
+  s.source_files  = 'prengine-ios/package/*.{h,cpp}'
+  #s.public_header_files = 'package/*.h'
 
 
   # ――― Resources ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -121,7 +121,7 @@ Pod::Spec.new do |s|
   # s.framework  = "SomeFramework"
   # s.frameworks = "SomeFramework", "AnotherFramework"
 
-  #s.library = 'stdc++'
+  s.library = 'stdc++'
   # s.libraries = "iconv", "xml2"
 
 
