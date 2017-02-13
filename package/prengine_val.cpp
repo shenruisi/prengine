@@ -37,16 +37,19 @@ pr_id::pr_id(){
 }
 
 pr_id::pr_id(double val){
+    this->undefined = false;
     this->type = PR_ID_DOUBLE;
     this->number.d = val;
 }
 
 pr_id::pr_id(long long val){
+    this->undefined = false;
     this->type = PR_ID_LONGLONG;
     this->number.ll = val;
 }
 
 pr_id::pr_id(string val){
+    this->undefined = false;
     this->type = PR_ID_STRING;
     this->str = val;
 }
