@@ -27,9 +27,12 @@ g++ ../package/prengine_val.cpp ../package/cond_ast.cpp ../package/prengine.cpp 
 
 拷贝`package/`目录下的 `prengine.h`,`prengine.cpp`,`prengine_val.h`,`prengine_val.cpp`,`cond_ast.h`,`cond_ast.cpp`到目标目录即可。
 
-* 获取.a或者.so文件
+* 获取.a文件
 
-进入`package/`目录 运行make 在`bin/`目录下获取.a或者.so文件。
+进入`package/`目录 运行make 在`bin/`目录下获取.a文件。
+
+* 获取ios平台.a文件
+进入`package/`目录 运行make platform=ios 在`bin/`目录下获取.a文件。
 
 ## 使用
 1.`include "prengine.h"`
