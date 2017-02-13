@@ -1,6 +1,7 @@
 #include "../package/prengine.h"
 #include <stdio.h>
-#include <string>
+#include <string.h>
+
 using namespace std;
 
 pr_id sample_handler(const char *vname){
