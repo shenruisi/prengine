@@ -15,7 +15,9 @@ int main(int argc, char const *argv[]) {
   const char *input1 = "http://taofen8.com/home";
   const char *input2 = "custom-scheme://taofen8.com/detail?goodsId=12345";
   //读取config文件
-  FILE *fp = fopen( "sample.conf" , "r" );
+  FILE *fp;
+  if (argc == 2) fp = fopen( argv[1] , "r" );
+  else  fp = fopen( "sample.conf" , "r" );
   fseek(fp , 0L , SEEK_END);
   long size = ftell(fp);
   rewind(fp);

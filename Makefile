@@ -35,5 +35,13 @@ endif
 	#$(CC) -shared -fPIC $^ -o $(TAR_DIR)/$(DYNAMIC_LIB)
 	rm -rf $^
 
+test: $(OBJ)
+	rm -rf $(TAR_DIR)
+	test -d $(TAR_DIR) || mkdir $(TAR_DIR)
+	cp $(DEPS) $(TAR_DIR)
+	ar rcs $(TAR_DIR)/$(LIB_NAME).a $^
+	g++ -g ./sample/main.cpp $(TAR_DIR)/$(LIB_NAME).a -o test.out
+	./test.out ./sample/sample.conf
+
 clean:
 	rm -rf $(TAR_DIR)
