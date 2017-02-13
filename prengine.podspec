@@ -93,8 +93,8 @@ Pod::Spec.new do |s|
   #  Not including the public_header_files will make all headers public.
   #
 
-  s.source_files  = 'prengine-ios/prengine-ios/package/*.{h,cpp}'
-  #s.public_header_files = 'package/*.h'
+  s.source_files  = 'prengine-ios/prengine-ios/package/*.cpp'
+  s.public_header_files = 'prengine-ios/prengine-ios/package/*.h'
 
 
   # ――― Resources ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -137,7 +137,7 @@ Pod::Spec.new do |s|
   # s.dependency "JSONKit", "~> 1.4"
 
   s.xcconfig = {
-   'CLANG_CXX_LANGUAGE_STANDARD' => 'gnu++11',
+   'CLANG_CXX_LANGUAGE_STANDARD' => 'c++11',
    'CLANG_CXX_LIBRARY' => 'libc++'
  }
 
