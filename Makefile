@@ -26,9 +26,9 @@ ifeq ($(platform), x86)
 endif
 
 ifeq ($(platform), ios)
-	xcodebuild -project prengine.xcodeproj ARCHS='i386 x86_64' -sdk iphonesimulator
-	xcodebuild -project prengine.xcodeproj ARCHS='armv7 armv7s arm64' -sdk iphoneos
-	lipo -create $(IOS_SIMULATOR_DIR)/$(LIB_NAME).a $(IOS_DEVICE_DIR)/$(LIB_NAME).a -output $(TAR_DIR)/$(LIB_NAME)-$(VERSION).a
+	xcodebuild -project ios-build.xcodeproj ARCHS='i386 x86_64' -sdk iphonesimulator
+	xcodebuild -project ios-build.xcodeproj ARCHS='armv7 armv7s arm64' -sdk iphoneos
+	lipo -create $(IOS_SIMULATOR_DIR)/libios-build.a $(IOS_DEVICE_DIR)/libios-build.a -output $(TAR_DIR)/$(LIB_NAME)-$(VERSION).a
 	rm -rf $(IOS_BUILD_DIR)
 endif
 
