@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "prengine"
-  s.version      = "0.1.0-beta.1"
+  s.version      = "0.1.0-beta.2"
   s.summary      = "A static library of prengine."
 
   # This description is used to generate tags and improve search results.
@@ -39,8 +39,8 @@ Pod::Spec.new do |s|
   #  Popular ones are 'MIT', 'BSD' and 'Apache License, Version 2.0'.
   #
 
-  #s.license      = "BSD"
-  s.license      = { :type => "BSD", :file => "LICENSE" }
+  s.license      = "BSD"
+  #s.license      = { :type => "BSD", :file => "LICENSE" }
 
 
   # ――― Author Metadata  ――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -64,7 +64,7 @@ Pod::Spec.new do |s|
   #  the deployment target. You can optionally include the target after the platform.
   #
 
-  s.platform     = :ios
+  #s.platform     = :ios
   # s.platform     = :ios, "5.0"
 
   #  When using multiple platforms
@@ -81,6 +81,7 @@ Pod::Spec.new do |s|
   #
 
   s.source       = { :git => "https://github.com/shenruisi/prengine.git"}
+  #{ :http => "https://github.com/shenruisi/prengine/files/765799/prengine-0.1.0-beta.1.zip"}
     #:tag => "#{s.version}" }
 
 
@@ -92,9 +93,8 @@ Pod::Spec.new do |s|
   #  Not including the public_header_files will make all headers public.
   #
 
-  s.source_files  = 'package/*.{cpp,hpp}'
-  #s.exclude_files = "Classes/Exclude"
-  #s.public_header_files = 'package/*.h'
+  s.source_files  = 'package/*.cpp'
+  s.public_header_files = 'package/*.h'
 
 
   # ――― Resources ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -117,11 +117,11 @@ Pod::Spec.new do |s|
   #  the lib prefix of their name.
   #
 
-  s.requires_arc = true
+  #s.requires_arc = true
   # s.framework  = "SomeFramework"
   # s.frameworks = "SomeFramework", "AnotherFramework"
 
-  s.library = 'stdc++'
+  #s.library = 'stdc++'
   # s.libraries = "iconv", "xml2"
 
 
@@ -138,7 +138,7 @@ Pod::Spec.new do |s|
 
   s.xcconfig = {
    'CLANG_CXX_LANGUAGE_STANDARD' => 'gnu++11',
-   'CLANG_CXX_LIBRARY' => 'libstdc++'
+   'CLANG_CXX_LIBRARY' => 'libc++'
  }
 
 end

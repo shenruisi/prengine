@@ -7,16 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		58B49C831E4ECD4C00DBE6ED /* cond_ast.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 58B49C801E4ECD4C00DBE6ED /* cond_ast.cpp */; };
-		58B49C841E4ECD4C00DBE6ED /* prengine_val.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 58B49C811E4ECD4C00DBE6ED /* prengine_val.cpp */; };
-		58B49C851E4ECD4C00DBE6ED /* prengine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 58B49C821E4ECD4C00DBE6ED /* prengine.cpp */; };
-		58B49C891E4ECD6100DBE6ED /* cond_ast.h in Headers */ = {isa = PBXBuildFile; fileRef = 58B49C861E4ECD6100DBE6ED /* cond_ast.h */; };
-		58B49C8A1E4ECD6100DBE6ED /* prengine_val.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 58B49C871E4ECD6100DBE6ED /* prengine_val.hpp */; };
-		58B49C8B1E4ECD6100DBE6ED /* prengine.h in Headers */ = {isa = PBXBuildFile; fileRef = 58B49C881E4ECD6100DBE6ED /* prengine.h */; };
+		58B49CAD1E5154D300DBE6ED /* cond_ast.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 58B49CAA1E5154D300DBE6ED /* cond_ast.cpp */; };
+		58B49CAE1E5154D300DBE6ED /* prengine_val.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 58B49CAB1E5154D300DBE6ED /* prengine_val.cpp */; };
+		58B49CAF1E5154D300DBE6ED /* prengine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 58B49CAC1E5154D300DBE6ED /* prengine.cpp */; };
+		58B49CB51E51551700DBE6ED /* cond_ast.h in Headers */ = {isa = PBXBuildFile; fileRef = 58B49CB21E51551700DBE6ED /* cond_ast.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		58B49CB61E51551700DBE6ED /* prengine_val.h in Headers */ = {isa = PBXBuildFile; fileRef = 58B49CB31E51551700DBE6ED /* prengine_val.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		58B49CB71E51551700DBE6ED /* prengine.h in Headers */ = {isa = PBXBuildFile; fileRef = 58B49CB41E51551700DBE6ED /* prengine.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		5826C6E71E4D4CC30037BA83 /* CopyFiles */ = {
+		58B49C9C1E51549C00DBE6ED /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "include/$(PRODUCT_NAME)";
@@ -28,17 +28,17 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		5826C6E91E4D4CC30037BA83 /* libprengine.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libprengine.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		58B49C801E4ECD4C00DBE6ED /* cond_ast.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = cond_ast.cpp; path = package/cond_ast.cpp; sourceTree = "<group>"; };
-		58B49C811E4ECD4C00DBE6ED /* prengine_val.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = prengine_val.cpp; path = package/prengine_val.cpp; sourceTree = "<group>"; };
-		58B49C821E4ECD4C00DBE6ED /* prengine.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = prengine.cpp; path = package/prengine.cpp; sourceTree = "<group>"; };
-		58B49C861E4ECD6100DBE6ED /* cond_ast.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = cond_ast.h; path = package/cond_ast.h; sourceTree = "<group>"; };
-		58B49C871E4ECD6100DBE6ED /* prengine_val.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = prengine_val.hpp; path = package/prengine_val.hpp; sourceTree = "<group>"; };
-		58B49C881E4ECD6100DBE6ED /* prengine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = prengine.h; path = package/prengine.h; sourceTree = "<group>"; };
+		58B49C9E1E51549C00DBE6ED /* libprengine-ios.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libprengine-ios.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		58B49CAA1E5154D300DBE6ED /* cond_ast.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = cond_ast.cpp; path = ../package/cond_ast.cpp; sourceTree = "<group>"; };
+		58B49CAB1E5154D300DBE6ED /* prengine_val.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = prengine_val.cpp; path = ../package/prengine_val.cpp; sourceTree = "<group>"; };
+		58B49CAC1E5154D300DBE6ED /* prengine.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = prengine.cpp; path = ../package/prengine.cpp; sourceTree = "<group>"; };
+		58B49CB21E51551700DBE6ED /* cond_ast.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = cond_ast.h; path = ../package/cond_ast.h; sourceTree = "<group>"; };
+		58B49CB31E51551700DBE6ED /* prengine_val.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = prengine_val.h; path = ../package/prengine_val.h; sourceTree = "<group>"; };
+		58B49CB41E51551700DBE6ED /* prengine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = prengine.h; path = ../package/prengine.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		5826C6E61E4D4CC30037BA83 /* Frameworks */ = {
+		58B49C9B1E51549C00DBE6ED /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -48,107 +48,115 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		5826C6E01E4D4CC30037BA83 = {
+		58B49C951E51549C00DBE6ED = {
 			isa = PBXGroup;
 			children = (
-				58B49C861E4ECD6100DBE6ED /* cond_ast.h */,
-				58B49C871E4ECD6100DBE6ED /* prengine_val.hpp */,
-				58B49C881E4ECD6100DBE6ED /* prengine.h */,
-				58B49C801E4ECD4C00DBE6ED /* cond_ast.cpp */,
-				58B49C811E4ECD4C00DBE6ED /* prengine_val.cpp */,
-				58B49C821E4ECD4C00DBE6ED /* prengine.cpp */,
-				5826C6EA1E4D4CC30037BA83 /* Products */,
+				58B49CB21E51551700DBE6ED /* cond_ast.h */,
+				58B49CB31E51551700DBE6ED /* prengine_val.h */,
+				58B49CB41E51551700DBE6ED /* prengine.h */,
+				58B49CAA1E5154D300DBE6ED /* cond_ast.cpp */,
+				58B49CAB1E5154D300DBE6ED /* prengine_val.cpp */,
+				58B49CAC1E5154D300DBE6ED /* prengine.cpp */,
+				58B49CA01E51549C00DBE6ED /* prengine-ios */,
+				58B49C9F1E51549C00DBE6ED /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		5826C6EA1E4D4CC30037BA83 /* Products */ = {
+		58B49C9F1E51549C00DBE6ED /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				5826C6E91E4D4CC30037BA83 /* libprengine.a */,
+				58B49C9E1E51549C00DBE6ED /* libprengine-ios.a */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		58B49CA01E51549C00DBE6ED /* prengine-ios */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "prengine-ios";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		58B49C6B1E4EC4E000DBE6ED /* Headers */ = {
+		58B49CB11E51550B00DBE6ED /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				58B49C891E4ECD6100DBE6ED /* cond_ast.h in Headers */,
-				58B49C8A1E4ECD6100DBE6ED /* prengine_val.hpp in Headers */,
-				58B49C8B1E4ECD6100DBE6ED /* prengine.h in Headers */,
+				58B49CB51E51551700DBE6ED /* cond_ast.h in Headers */,
+				58B49CB61E51551700DBE6ED /* prengine_val.h in Headers */,
+				58B49CB71E51551700DBE6ED /* prengine.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		5826C6E81E4D4CC30037BA83 /* prengine */ = {
+		58B49C9D1E51549C00DBE6ED /* prengine-ios */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 5826C6F21E4D4CC30037BA83 /* Build configuration list for PBXNativeTarget "prengine" */;
+			buildConfigurationList = 58B49CA71E51549C00DBE6ED /* Build configuration list for PBXNativeTarget "prengine-ios" */;
 			buildPhases = (
-				5826C6E51E4D4CC30037BA83 /* Sources */,
-				5826C6E61E4D4CC30037BA83 /* Frameworks */,
-				5826C6E71E4D4CC30037BA83 /* CopyFiles */,
-				58B49C6B1E4EC4E000DBE6ED /* Headers */,
+				58B49C9A1E51549C00DBE6ED /* Sources */,
+				58B49C9B1E51549C00DBE6ED /* Frameworks */,
+				58B49C9C1E51549C00DBE6ED /* CopyFiles */,
+				58B49CB11E51550B00DBE6ED /* Headers */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = prengine;
-			productName = prengine;
-			productReference = 5826C6E91E4D4CC30037BA83 /* libprengine.a */;
+			name = "prengine-ios";
+			productName = "prengine-ios";
+			productReference = 58B49C9E1E51549C00DBE6ED /* libprengine-ios.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		5826C6E11E4D4CC30037BA83 /* Project object */ = {
+		58B49C961E51549C00DBE6ED /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0730;
 				ORGANIZATIONNAME = ris;
 				TargetAttributes = {
-					5826C6E81E4D4CC30037BA83 = {
+					58B49C9D1E51549C00DBE6ED = {
 						CreatedOnToolsVersion = 7.3.1;
 					};
 				};
 			};
-			buildConfigurationList = 5826C6E41E4D4CC30037BA83 /* Build configuration list for PBXProject "prengine" */;
+			buildConfigurationList = 58B49C991E51549C00DBE6ED /* Build configuration list for PBXProject "prengine-ios" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 			);
-			mainGroup = 5826C6E01E4D4CC30037BA83;
-			productRefGroup = 5826C6EA1E4D4CC30037BA83 /* Products */;
+			mainGroup = 58B49C951E51549C00DBE6ED;
+			productRefGroup = 58B49C9F1E51549C00DBE6ED /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				5826C6E81E4D4CC30037BA83 /* prengine */,
+				58B49C9D1E51549C00DBE6ED /* prengine-ios */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		5826C6E51E4D4CC30037BA83 /* Sources */ = {
+		58B49C9A1E51549C00DBE6ED /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				58B49C831E4ECD4C00DBE6ED /* cond_ast.cpp in Sources */,
-				58B49C841E4ECD4C00DBE6ED /* prengine_val.cpp in Sources */,
-				58B49C851E4ECD4C00DBE6ED /* prengine.cpp in Sources */,
+				58B49CAD1E5154D300DBE6ED /* cond_ast.cpp in Sources */,
+				58B49CAE1E5154D300DBE6ED /* prengine_val.cpp in Sources */,
+				58B49CAF1E5154D300DBE6ED /* prengine.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		5826C6F01E4D4CC30037BA83 /* Debug */ = {
+		58B49CA51E51549C00DBE6ED /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -192,7 +200,7 @@
 			};
 			name = Debug;
 		};
-		5826C6F11E4D4CC30037BA83 /* Release */ = {
+		58B49CA61E51549C00DBE6ED /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -230,62 +238,45 @@
 			};
 			name = Release;
 		};
-		5826C6F31E4D4CC30037BA83 /* Debug */ = {
+		58B49CA81E51549C00DBE6ED /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CLANG_CXX_LANGUAGE_STANDARD = "c++14";
-				CLANG_CXX_LIBRARY = "libc++";
-				GCC_C_LANGUAGE_STANDARD = "compiler-default";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/prengine/package/bin",
-				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				VALID_ARCHS = "arm64 armv7 armv7s";
 			};
 			name = Debug;
 		};
-		5826C6F41E4D4CC30037BA83 /* Release */ = {
+		58B49CA91E51549C00DBE6ED /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CLANG_CXX_LANGUAGE_STANDARD = "c++14";
-				CLANG_CXX_LIBRARY = "libc++";
-				GCC_C_LANGUAGE_STANDARD = "compiler-default";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/prengine/package/bin",
-				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				VALID_ARCHS = "arm64 armv7 armv7s";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		5826C6E41E4D4CC30037BA83 /* Build configuration list for PBXProject "prengine" */ = {
+		58B49C991E51549C00DBE6ED /* Build configuration list for PBXProject "prengine-ios" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				5826C6F01E4D4CC30037BA83 /* Debug */,
-				5826C6F11E4D4CC30037BA83 /* Release */,
+				58B49CA51E51549C00DBE6ED /* Debug */,
+				58B49CA61E51549C00DBE6ED /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		5826C6F21E4D4CC30037BA83 /* Build configuration list for PBXNativeTarget "prengine" */ = {
+		58B49CA71E51549C00DBE6ED /* Build configuration list for PBXNativeTarget "prengine-ios" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				5826C6F31E4D4CC30037BA83 /* Debug */,
-				5826C6F41E4D4CC30037BA83 /* Release */,
+				58B49CA81E51549C00DBE6ED /* Debug */,
+				58B49CA91E51549C00DBE6ED /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 5826C6E11E4D4CC30037BA83 /* Project object */;
+	rootObject = 58B49C961E51549C00DBE6ED /* Project object */;
 }

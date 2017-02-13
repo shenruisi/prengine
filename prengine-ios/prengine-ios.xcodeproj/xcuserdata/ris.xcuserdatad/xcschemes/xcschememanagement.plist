@@ -4,7 +4,7 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>prengine.xcscheme</key>
+		<key>prengine-ios.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>0</integer>
@@ -12,7 +12,7 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>5826C6E81E4D4CC30037BA83</key>
+		<key>58B49C9D1E51549C00DBE6ED</key>
 		<dict>
 			<key>primary</key>
 			<true/>

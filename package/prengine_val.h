@@ -27,6 +27,7 @@ public:
         long long ll;
     }number;
     bool undefined = false;
+
     string str;
     PR_ID_TYPE type;
 

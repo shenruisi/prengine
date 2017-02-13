@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "5826C6E81E4D4CC30037BA83"
-               BuildableName = "libprengine.a"
-               BlueprintName = "prengine"
-               ReferencedContainer = "container:prengine.xcodeproj">
+               BlueprintIdentifier = "58B49C9D1E51549C00DBE6ED"
+               BuildableName = "libprengine-ios.a"
+               BlueprintName = "prengine-ios"
+               ReferencedContainer = "container:prengine-ios.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -45,10 +45,10 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "5826C6E81E4D4CC30037BA83"
-            BuildableName = "libprengine.a"
-            BlueprintName = "prengine"
-            ReferencedContainer = "container:prengine.xcodeproj">
+            BlueprintIdentifier = "58B49C9D1E51549C00DBE6ED"
+            BuildableName = "libprengine-ios.a"
+            BlueprintName = "prengine-ios"
+            ReferencedContainer = "container:prengine-ios.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -63,10 +63,10 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "5826C6E81E4D4CC30037BA83"
-            BuildableName = "libprengine.a"
-            BlueprintName = "prengine"
-            ReferencedContainer = "container:prengine.xcodeproj">
+            BlueprintIdentifier = "58B49C9D1E51549C00DBE6ED"
+            BuildableName = "libprengine-ios.a"
+            BlueprintName = "prengine-ios"
+            ReferencedContainer = "container:prengine-ios.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </ProfileAction>
