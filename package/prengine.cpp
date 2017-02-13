@@ -10,7 +10,7 @@
 #include <deque>
 #include <string>
 #include <regex.h>
-
+#include <string.h>
 #include "cond_ast.h"
 #include "prengine.h"
 using namespace std;
