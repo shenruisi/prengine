@@ -7,6 +7,7 @@
 //
 
 #include "prengine_val.h"
+#include <stdio.h>
 
 pr_id pr_yes(){
     return pr_id((long long)1);
