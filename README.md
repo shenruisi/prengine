@@ -3,7 +3,7 @@
 [![Build Status](https://travis-ci.org/shenruisi/prengine.svg?branch=master)](https://travis-ci.org/shenruisi/prengine)
 [![GitHub license](https://img.shields.io/badge/license-BSD-blue.svg?style=flat)](https://github.com/shenruisi/prengine/blob/master/LICENSE)
 
-** Poor Router Engine ** 一种用来帮助客户端实现更好的路由解决方案的rewrite引擎，可以用于客户端页面路由，模块解耦。
+**Poor Router Engine** 一种用来帮助客户端实现更好的路由解决方案的rewrite引擎，可以用于客户端页面路由，模块解耦。
 
 ## 设计
 通过`prengine`，你可以使用部分`nginx`语法来描写配置文件，`prengine`将会解析输入的URI，并根
@@ -14,7 +14,7 @@
 
 * [配置文件](https://github.com/shenruisi/prengine/blob/master/sample/sample.conf) - prengine所使用的配置文件格式
 
-### 执行示例代码
+#### 执行示例代码
 
 ```
 g++ ../package/prengine_val.cpp ../package/cond_ast.cpp ../package/prengine.cpp  main.cpp
@@ -24,19 +24,20 @@ g++ ../package/prengine_val.cpp ../package/cond_ast.cpp ../package/prengine.cpp 
 
 ## 安装
 
-### 直接安装
+#### 直接安装
 
 ```
-拷贝`package/`目录下的 `prengine.h`,`prengine.cpp`,`prengine_val.h`,`prengine_val.cpp`,`cond_ast.h`,`cond_ast.cpp`到目标目录即可。
+拷贝`package/`目录下的 `prengine.h`,`prengine.cpp`,`prengine_val.h`,`prengine_val.cpp`,`cond_ast.h`,
+`cond_ast.cpp`到目标目录即可。
 ```
 
-### 获取.a文件
+#### 获取.a文件
 
 ```
 进入`package/`目录 运行make 在`bin/`目录下获取.a文件。
 ```
 
-### 获取ios平台.a文件
+#### 获取ios平台.a文件
 
 ```
 进入`package/`目录 运行make platform=ios 在`bin/`目录下获取.a文件。
@@ -54,7 +55,7 @@ g++ ../package/prengine_val.cpp ../package/cond_ast.cpp ../package/prengine.cpp 
 
 5.调用`void pr_rewritefree(PRREWRITE *)`释放`PRREWRITE`对象。
 
-### 变量注入
+#### 变量注入
 
 如何在config文件中使用自定义变量（eg. 在config中使用`$test`）？
 
