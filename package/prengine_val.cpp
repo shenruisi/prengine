@@ -178,23 +178,23 @@ bool pr_id::operator==(const pr_id &id){
     if (undefined && id.undefined){
         return true;
     }
-    else if(type == PR_ID_LONGLONG && id.type == PR_ID_LONGLONG){
+    else if(type == PR_ID_LONGLONG && id.type == PR_ID_LONGLONG && !undefined && !id.undefined){
         if (number.ll == id.number.ll) return true;
         else return false;
     }
-    else if (type == PR_ID_LONGLONG && id.type == PR_ID_DOUBLE){
+    else if (type == PR_ID_LONGLONG && id.type == PR_ID_DOUBLE && !undefined && !id.undefined){
         if (number.ll == id.number.d) return true;
         else return false;
     }
-    else if (type == PR_ID_DOUBLE && id.type == PR_ID_LONGLONG){
+    else if (type == PR_ID_DOUBLE && id.type == PR_ID_LONGLONG && !undefined && !id.undefined){
         if (number.ll == id.number.d) return true;
         else return false;
     }
-    else if (type == PR_ID_DOUBLE && id.type == PR_ID_DOUBLE){
+    else if (type == PR_ID_DOUBLE && id.type == PR_ID_DOUBLE && !undefined && !id.undefined){
         if (number.d == id.number.d) return true;
         else return false;
     }
-    else if (type == PR_ID_STRING && id.type == PR_ID_STRING){
+    else if (type == PR_ID_STRING && id.type == PR_ID_STRING && !undefined && !id.undefined){
         if (str == id.str) return true;
         else return false;
     }

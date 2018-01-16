@@ -34,9 +34,15 @@ struct cond_node{
     }
 };
 
+#ifdef __cplusplus
+extern "C" double calc_exp(char *);
+#else
+double calc_exp(char *);
+#endif
+
 cond_node* cond_ast_creat(string exp);
 pr_id calc_cond_ast(cond_node *root);
-void print_cond_ast(queue<cond_node *>rootq);
 int get_operator_priority(string s);
+void print_cond_ast(queue<cond_node *>rootq);
 
 #endif /* cond_ast_hpp */

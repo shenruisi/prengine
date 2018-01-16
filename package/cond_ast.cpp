@@ -7,6 +7,19 @@
 //
 #include "cond_ast.h"
 
+double calc_exp(char *s){
+    cond_node *node = cond_ast_creat(s);
+    pr_id id = calc_cond_ast(node);
+    if (id.type == PR_ID_LONGLONG){
+        return id.longLongValue();
+    }
+    else if (id.type == PR_ID_DOUBLE){
+        return id.doubleValue();
+    }
+    else
+        return -1;
+}
+
 int get_operator_priority(string s){
     if (s == "*" || s == "/" || s == "%")
         return 3;
@@ -215,7 +228,10 @@ cond_node* _inner_cond_ast_creat(string exp,int *index){
         }
         cond_node *node = new cond_node();
         node->val = id;
+        
         EXP_APPEND_NODE(node);
+        
+        
     }
 
     return _get_top_root(curroot);
@@ -293,6 +309,7 @@ pr_id _post_order_traverse(cond_node *op){
             }
             else if (">=" == operatorstr){
                 if (left >= right) return pr_yes();
+                else return pr_no();
             }
             else if ("<" == operatorstr){
                 if (left < right) return pr_yes();
